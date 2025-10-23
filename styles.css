@@ -1,0 +1,334 @@
+/* Kingston High Voting System Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Screen Management */
+.screen {
+    display: none;
+    flex: 1;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    margin: 20px 0;
+}
+
+.screen.active {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.header h1 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.header h2 {
+    color: #7f8c8d;
+    font-size: 1.3rem;
+    font-weight: normal;
+}
+
+/* Welcome Screen */
+.welcome-content {
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-content p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+/* Buttons */
+.btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #95a5a6;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #7f8c8d;
+    transform: translateY(-2px);
+}
+
+/* Voting Form */
+#voting-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.position-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+}
+
+.position-section h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.candidates {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.candidate-option {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.candidate-option:hover {
+    background: #e8f4fd;
+    border-color: #667eea;
+}
+
+.candidate-option input[type="radio"] {
+    margin-right: 15px;
+    transform: scale(1.2);
+}
+
+.candidate-option input[type="radio"]:checked + .candidate-name {
+    color: #667eea;
+    font-weight: 600;
+}
+
+.candidate-name {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+/* Thank You Screen */
+.thank-you-content {
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkmark {
+    font-size: 4rem;
+    color: #27ae60;
+    margin-bottom: 20px;
+}
+
+.thank-you-content h2 {
+    color: #2c3e50;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.thank-you-content p {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    margin-bottom: 30px;
+}
+
+.timer-display {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+#countdown {
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+.progress-bar {
+    width: 100%;
+    max-width: 400px;
+    height: 8px;
+    background: #ecf0f1;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    width: 0%;
+    transition: width 1s linear;
+}
+
+/* Sync Status */
+.sync-status {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 1000;
+}
+
+.sync-status.online {
+    background: #27ae60;
+    color: white;
+}
+
+.sync-status.offline {
+    background: #e74c3c;
+    color: white;
+}
+
+.sync-status.syncing {
+    background: #f39c12;
+    color: white;
+}
+
+#sync-indicator {
+    font-size: 1.2rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .screen {
+        padding: 20px;
+        margin: 10px 0;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .header h2 {
+        font-size: 1.1rem;
+    }
+    
+    .candidates {
+        gap: 8px;
+    }
+    
+    .candidate-option {
+        padding: 12px;
+    }
+    
+    .candidate-name {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .sync-status {
+        top: 10px;
+        right: 10px;
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .position-section {
+        padding: 15px;
+    }
+    
+    .position-section h3 {
+        font-size: 1.2rem;
+    }
+    
+    .checkmark {
+        font-size: 3rem;
+    }
+    
+    .thank-you-content h2 {
+        font-size: 1.8rem;
+    }
+}

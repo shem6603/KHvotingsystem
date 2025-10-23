@@ -1,0 +1,49 @@
+# Google Cloud App Engine Configuration
+runtime: nodejs18
+
+# Environment variables
+env_variables:
+  NODE_ENV: production
+  PORT: 8080
+
+# Automatic scaling
+automatic_scaling:
+  min_instances: 1
+  max_instances: 10
+  target_cpu_utilization: 0.6
+
+# Health checks
+health_check:
+  enable_health_check: true
+  check_interval_sec: 30
+  timeout_sec: 4
+  unhealthy_threshold: 2
+  healthy_threshold: 2
+
+# Static files configuration
+handlers:
+  # Serve static files
+  - url: /(.*\.(css|js|json|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot))
+    static_files: \1
+    upload: (.*\.(css|js|json|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot))
+    expiration: 1d
+    secure: always
+
+  # Serve HTML files
+  - url: /(.*\.html)
+    static_files: \1
+    upload: (.*\.html)
+    expiration: 1h
+    secure: always
+
+  # Serve service worker
+  - url: /sw\.js
+    static_files: sw.js
+    upload: sw\.js
+    expiration: 1d
+    secure: always
+
+  # Default handler for API routes
+  - url: /.*
+    script: auto
+    secure: always

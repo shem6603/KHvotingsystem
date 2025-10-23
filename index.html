@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingston High Voting System</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="theme-color" content="#2c3e50">
+    <meta name="description" content="Kingston High School Student Government Voting System">
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen active">
+            <div class="header">
+                <h1>Kingston High School</h1>
+                <h2>Student Government Elections</h2>
+            </div>
+            <div class="welcome-content">
+                <p>Welcome to the voting system!</p>
+                <p>Please select your candidates for each position.</p>
+                <button id="start-voting-btn" class="btn btn-primary">Start Voting</button>
+            </div>
+        </div>
+
+        <!-- Voting Screen -->
+        <div id="voting-screen" class="screen">
+            <div class="header">
+                <h1>Cast Your Vote</h1>
+            </div>
+            
+            <form id="voting-form">
+                <!-- President -->
+                <div class="position-section">
+                    <h3>President</h3>
+                    <div class="candidates">
+                        <label class="candidate-option">
+                            <input type="radio" name="president" value="candidate1" required>
+                            <span class="candidate-name">Alex Johnson</span>
+                        </label>
+                        <label class="candidate-option">
+                            <input type="radio" name="president" value="candidate2" required>
+                            <span class="candidate-name">Sarah Williams</span>
+                        </label>
+                        <label class="candidate-option">
+                            <input type="radio" name="president" value="candidate3" required>
+                            <span class="candidate-name">Michael Brown</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Vice President -->
+                <div class="position-section">
+                    <h3>Vice President</h3>
+                    <div class="candidates">
+                        <label class="candidate-option">
+                            <input type="radio" name="vice-president" value="candidate1" required>
+                            <span class="candidate-name">Emma Davis</span>
+                        </label>
+                        <label class="candidate-option">
+                            <input type="radio" name="vice-president" value="candidate2" required>
+                            <span class="candidate-name">James Wilson</span>
+                        </label>
+                        <label class="candidate-option">
+                            <input type="radio" name="vice-president" value="candidate3" required>
+                            <span class="candidate-name">Olivia Martinez</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Secretary -->
+                <div class="position-section">
+                    <h3>Secretary</h3>
+                    <div class="candidates">
+                        <label class="candidate-option">
+                            <input type="radio" name="secretary" value="candidate1" required>
+                            <span class="candidate-name">David Lee</span>
+                        </label>
+                        <label class="candidate-option">
+                            <input type="radio" name="secretary" value="candidate2" required>
+                            <span class="candidate-name">Sophia Garcia</span>
+                        </label>
+                        <label class="candidate-option">
+                            <input type="radio" name="secretary" value="candidate3" required>
+                            <span class="candidate-name">Ryan Taylor</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" id="back-btn" class="btn btn-secondary">Back</button>
+                    <button type="submit" id="submit-vote-btn" class="btn btn-primary">Submit Vote</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Thank You Screen -->
+        <div id="thank-you-screen" class="screen">
+            <div class="thank-you-content">
+                <div class="checkmark">✓</div>
+                <h2>Thank You for Voting!</h2>
+                <p>Your vote has been recorded successfully.</p>
+                <div class="timer-display">
+                    <span id="timer-text">Next voter in: <span id="countdown">60</span> seconds</span>
+                </div>
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sync Status -->
+        <div id="sync-status" class="sync-status offline">
+            <span id="sync-indicator">●</span>
+            <span id="sync-text">Offline</span>
+        </div>
+    </div>
+
+    <script src="storage.js"></script>
+    <script src="sync.js"></script>
+    <script src="voting.js"></script>
+</body>
+</html>

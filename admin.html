@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingston High Voting - Admin Dashboard</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin-styles.css">
+    <meta name="theme-color" content="#2c3e50">
+    <meta name="description" content="Kingston High School Voting System - Admin Dashboard">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Header -->
+        <header class="admin-header">
+            <h1>Kingston High Voting</h1>
+            <h2>Admin Dashboard</h2>
+            <div class="admin-controls">
+                <button id="refresh-btn" class="btn btn-primary">Refresh Data</button>
+                <button id="sync-btn" class="btn btn-secondary">Sync Now</button>
+                <button id="clear-votes-btn" class="btn btn-danger">Clear All Votes</button>
+            </div>
+        </header>
+
+        <!-- Sync Status -->
+        <div id="sync-status" class="sync-status offline">
+            <span id="sync-indicator">●</span>
+            <span id="sync-text">Offline</span>
+        </div>
+
+        <!-- Statistics Overview -->
+        <section class="stats-overview">
+            <div class="stat-card">
+                <div class="stat-number" id="total-votes">0</div>
+                <div class="stat-label">Total Votes</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="unsynced-votes">0</div>
+                <div class="stat-label">Pending Sync</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="last-update">--:--</div>
+                <div class="stat-label">Last Update</div>
+            </div>
+        </section>
+
+        <!-- Results Sections -->
+        <div class="results-grid">
+            <!-- President Results -->
+            <section class="results-section">
+                <h3>President</h3>
+                <div class="candidates-results" id="president-results">
+                    <!-- Results will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Vice President Results -->
+            <section class="results-section">
+                <h3>Vice President</h3>
+                <div class="candidates-results" id="vice-president-results">
+                    <!-- Results will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Secretary Results -->
+            <section class="results-section">
+                <h3>Secretary</h3>
+                <div class="candidates-results" id="secretary-results">
+                    <!-- Results will be populated by JavaScript -->
+                </div>
+            </section>
+        </div>
+
+        <!-- Charts Section -->
+        <section class="charts-section">
+            <h3>Voting Trends</h3>
+            <div class="chart-container">
+                <canvas id="results-chart" width="400" height="200"></canvas>
+            </div>
+        </section>
+
+        <!-- Recent Votes -->
+        <section class="recent-votes">
+            <h3>Recent Activity</h3>
+            <div class="votes-list" id="recent-votes-list">
+                <!-- Recent votes will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Navigation -->
+        <nav class="admin-nav">
+            <a href="index.html" class="nav-link">← Back to Voting</a>
+        </nav>
+    </div>
+
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Scripts -->
+    <script src="storage.js"></script>
+    <script src="sync.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
