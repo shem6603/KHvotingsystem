@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 8080;
 
 // Initialize Firestore
 const db = new Firestore({
-    projectId: process.env.GOOGLE_CLOUD_PROJECT || 'your-project-id'
+    projectId: process.env.GOOGLE_CLOUD_PROJECT || 'kh-voting-system'
 });
 
 // Middleware
