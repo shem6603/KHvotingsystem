@@ -1,5 +1,5 @@
 # Google Cloud App Engine Configuration
-runtime: nodejs18
+runtime: nodejs20
 
 # Environment variables
 env_variables:
